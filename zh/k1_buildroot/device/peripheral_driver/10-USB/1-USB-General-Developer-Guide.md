@@ -2,19 +2,19 @@ sidebar_position: 1
 
 # USB 通用开发指南
 
-介绍 K1 USB 的的基本功能和配置、使用方法。
+介绍 K1 USB 的基本功能、配置和使用方法。
 
 适用范围： SpacemiT Linux 6.1, SpacemiT Linux 6.6
 
 ## 模块介绍
 
-K1 共有三个 USB 控制器，分别为 :
+K1 共有三个 USB 控制器，分别为：
 
 - USB2.0 OTG（ USB0 ）
 - USB2.0 Host（ USB1 ）
 - USB3.0 DRD（其中 USB2.0 端口为 USB2 ， SuperSpeed 端口为 USB3 ）
 
-Linux 中，支持 两种 USB 角色：
+Linux 中支持两种 USB 角色：
 
 - 可以外接 USB 外设的 Host 模式
 - 作为 USB 外设可以接入到其他上位机的 Device 模式
@@ -42,7 +42,7 @@ USB Device 角色驱动框架图可以分为以下几个层次：
 - **Composite：** 用于组合多个 USB Device 功能为一个设备，支持用户空间通过 configfs 配置，或者 legacy 驱动硬编码组合好的 Functions。
 - **Function Driver：** 这是 USB Device 功能层，负责实现 USB Device 模式的功能驱动，对接内核其他框架（如存储、 V4L2 、网络等）。
 
-这些层次结构共同构成了 Linux 系统中 USB 子系统的框架，确保了 USB 模块系统中的正常运行和数据传输。
+这些层次结构共同构成了 Linux 系统中 USB 子系统的框架，确保 USB 模块的正常运行和数据传输。
 
 ### 源码结构介绍
 

@@ -2,7 +2,11 @@ sidebar_position: 1
 
 # USB
 
-USB Functionality and Usage Guide.
+USB General Developer Guide
+
+Introduces the basic functionality, configuration, and usage of K1 USB.
+
+Applicable scope: SpacemiT Linux 6.1, SpacemiT Linux 6.6
 
 ## Overview
 
@@ -34,11 +38,11 @@ The USB Host role driver framework can be divided into the following layers:
 The USB Device role driver framework can be divided into the following layers:
 
 - **USB Device Controller Driver:** This is the USB Device role controller driver layer, responsible for initializing the controller and performing low-level data transmission and reception operations.
-- **UDC Core:** This is the core layer, responsible for abstracting the USB Device hierarchy and URB-based transfers, and providing interfaces for upper and lower layers.
+- **UDC Core:** This is the core layer, responsible for abstracting the USB Device hierarchy and usb_request-based transfers, and providing interfaces for upper and lower layers.
 - **Composite:** Used to combine multiple USB Device functions into a single device, supporting configuration by userspace through configfs or hard-coded combinations of Functions in legacy drivers.
 - **Function Driver:** This is the USB Device functionality layer, responsible for implementing the functional drivers for USB Device mode, and interfacing with other kernel frameworks (such as storage, V4L2, networking, etc.).
 
-These layers together form the framework of the USB subsystem in the Linux system, ensuring the normal operation and data transfer within the USB module system.
+These layers together form the framework of the USB subsystem in the Linux system, ensuring the normal operation and data transfer of the USB module.
 
 
 ### Source Code Structure
@@ -51,7 +55,7 @@ drivers/usb
 |   |-- phy-k1x-ci-otg.c      # OTG driver, used to implement the switching between EHCI Host and K1X UDC modes.
 |   |-- phy/phy-k1x-ci-usb2.c # PHY driver.
 |-- host/
-|   |-- ehci-k1x-ci.c         # EEHCI Host mode platform driver, needs to be used in combination with the EHCI Host driver.
+|   |-- ehci-k1x-ci.c         # EHCI Host mode platform driver, needs to be used in combination with the EHCI Host driver.
 |-- gadget/
     |-- udc/
         |-- k1x_udc_core.c    # Device mode driver.
@@ -75,9 +79,9 @@ drivers/usb
 |   |-- phy-k1x-ci-usb2.c   # USB2.0 PHY driver for the USB3.0 composite port
 |-- phy/
 |   |-- spacemit/
-|       |-- phy-spacemit-k1x-combphy.c # USB3.0 5Gbps PHY 
+|       |-- phy-spacemit-k1x-combphy.c # USB3.0 5Gbps PHY driver.
 |-- dwc3/
-|   |-- dwc3-spacemit.c    # DWC platform driver, needs to be used in combination with the DWC3 driver
+|   |-- dwc3-spacemit.c    # DWC platform driver, needs to be used in combination with the DWC3 driver.
 ```
 
 Other component code paths are as follows:
