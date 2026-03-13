@@ -4,6 +4,10 @@ sidebar_position: 1
 
 USB General Developer Guide
 
+Introduces the basic functionality, configuration, and usage of K1 USB.
+
+Applicable scope: SpacemiT Linux 6.1, SpacemiT Linux 6.6
+
 ## Overview
 
 The K1 platform features three USB controllers:
@@ -75,7 +79,7 @@ drivers/usb
 |   |-- phy-k1x-ci-usb2.c   # USB2.0 PHY driver for the USB3.0 composite port
 |-- phy/
 |   |-- spacemit/
-|       |-- phy-spacemit-k1x-combphy.c # USB3.0 5Gbps PHY 
+|       |-- phy-spacemit-k1x-combphy.c # USB3.0 5Gbps PHY driver.
 |-- dwc3/
 |   |-- dwc3-spacemit.c    # DWC platform driver, needs to be used in combination with the DWC3 driver.
 ```
