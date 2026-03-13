@@ -1,6 +1,8 @@
 sidebar_position: 1
 
-# USB General Developer Guide
+# USB
+
+USB General Developer Guide
 
 ## Overview
 
